@@ -10,19 +10,18 @@ public class Menu {
     public Menu(List<Product> list) {
         this.list = list;
     }
+    Scanner sc = new Scanner(System.in);
     public Menu(){
     }
 
     private int count=114;
     public void additionProduct() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите имя, цену и категорию товара");
         Product product = new Product(count++, sc.next(), sc.nextDouble(), sc.next());
         list.add(product);
     }
 
     public void findProduct() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите id продукта");
         int x = sc.nextInt();
         boolean y=true;
@@ -36,7 +35,6 @@ public class Menu {
     }
 
     public void deleteProduct() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите id продукта");
         int x = sc.nextInt();
         boolean y=true;
@@ -56,7 +54,6 @@ public class Menu {
     }
 
     public void menu() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Выберите позицию:\n1. Добавить продукт в список\n2. Найти продукт по id\n3. Удалить продукт по id\n4. Показать список продуктов\n5. Выход");
         int change = sc.nextInt();
         switch (change) {
