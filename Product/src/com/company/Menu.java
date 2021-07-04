@@ -16,7 +16,7 @@ public class Menu {
     private int count=114;
     public void additionProduct() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите имя, цену и категорию товара");
+        System.out.println("Введите имя, цену и категорию товара(ветка 1)");
         Product product = new Product(count++, sc.next(), sc.nextDouble(), sc.next());
         list.add(product);
     }
