@@ -5,52 +5,52 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    private List<Product> list=new ArrayList<>();
-
-    public Menu(List<Product> list) {
-        this.list = list;
-    }
     Scanner sc = new Scanner(System.in);
-    public Menu(){
-    }
 
-    private int count=114;
+    static int count=111;
     public void additionProduct() {
-        System.out.println("Введите имя, цену и категорию товара");
-        Product product = new Product(count++, sc.next(), sc.nextDouble(), sc.next());
-        list.add(product);
+        System.out.println("Введите имя");
+        String name=sc.next();
+        System.out.println("Введите цену");
+        double price=sc.nextDouble();
+        System.out.println("Введите категорию товара");
+        String category=sc.next();
+        Product product = new Product(count++, name, price, category);
+        productRepository.dataBase().add(product);
     }
 
     public void findProduct() {
         System.out.println("Введите id продукта");
         int x = sc.nextInt();
         boolean y=true;
-        for (int i = 0; i < list.size(); i++) {
-            if (x == list.get(i).getId()) {
-                y=false;
-                System.out.println(list.get(i));
+        for (Product i: productRepository.dataBase()) {
+            if (x == i.getId()) {
+                System.out.println(i);
+                y = false;
             }
         }
-        if (y){System.out.println("Продукта с таким id нет в наличии");}
+        if (y)
+            System.out.println("Продукта с таким id нет в наличии");
     }
 
     public void deleteProduct() {
         System.out.println("Введите id продукта");
         int x = sc.nextInt();
         boolean y=true;
-        for (int i = 0; i < list.size(); i++) {
-            if (x == list.get(i).getId()) {
+        for (Product i: productRepository.dataBase()) {
+            if (x == i.getId()) {
                 y=false;
-                list.remove(i);
+                productRepository.dataBase().remove(i);
                 System.out.println("Продукт удален");
+                break;
             }
         }
         if (y){System.out.println("Продукта с таким id нет в наличии");}
     }
 
     public void printList() {
-       for (int i = 0; i < list.size(); i++)
-           System.out.println(list.get(i));
+       for (Product i: productRepository.dataBase())
+           System.out.println(i);
     }
 
     public void menu() {
