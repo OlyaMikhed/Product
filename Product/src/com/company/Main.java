@@ -10,7 +10,7 @@ public class Main {
         l.add(new Product(112, "конфета", 180.5, "еда"));
         l.add(new Product(113, "торт", 63.2, "еда"));
 
-        Menu list=new Menu();
+        Menu list=new Menu(l);
         list.menu();
     }
 }
