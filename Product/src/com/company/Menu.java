@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-
     Scanner sc = new Scanner(System.in);
 
     static int count=111;
